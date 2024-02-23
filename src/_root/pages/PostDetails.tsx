@@ -11,6 +11,7 @@ import {
 } from "@/lib/react-query/queries";
 import { multiFormatDateString } from "@/lib/utils";
 import { useUserContext } from "@/context/AuthContext";
+import { SetStateAction } from "react";
 
 const PostDetails = () => {
   const navigate = useNavigate();
@@ -45,7 +46,7 @@ const PostDetails = () => {
             width={24}
             height={24}
           />
-          <p className="small-medium lg:base-medium">Back</p>
+          <p className="small-medium lg:base-medium">Geri</p>
         </Button>
       </div>
 
@@ -132,7 +133,9 @@ const PostDetails = () => {
             </div>
 
             <div className="w-full">
-              <PostStats post={post} userId={user.id} />
+              <PostStats post={post} userId={user.id} setShowComments={function (_value: SetStateAction<boolean>): void {
+                  throw new Error("İşlev uygulanmadı.");
+                } } showComments={false} commentsLength={0} />
             </div>
           </div>
         </div>
@@ -142,7 +145,7 @@ const PostDetails = () => {
         <hr className="border w-full border-dark-4/80" />
 
         <h3 className="body-bold md:h3-bold w-full my-10">
-          More Related Posts
+          İlgili Postlar
         </h3>
         {isUserPostLoading || !relatedPosts ? (
           <Loader />

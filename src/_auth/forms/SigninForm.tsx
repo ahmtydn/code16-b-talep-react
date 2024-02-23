@@ -34,7 +34,7 @@ const SigninForm = () => {
     const session = await signInAccount(user);
 
     if (!session) {
-      toast({ title: "Login failed. Please try again." });
+      toast({ title: "Giriş Başarısız. Tekrar Deneyiniz." });
       
       return;
     }
@@ -46,7 +46,7 @@ const SigninForm = () => {
 
       navigate("/");
     } else {
-      toast({ title: "Login failed. Please try again.", });
+      toast({ title: "Giriş Başarısız. Tekrar Deneyiniz.", });
       
       return;
     }
@@ -58,10 +58,10 @@ const SigninForm = () => {
     <Logo></Logo>
 
         <h2 className="h3-bold md:h2-bold pt-5 sm:pt-12">
-          Log in to your account
+          Hesabınıza Giriş Yapınız
         </h2>
         <p className="text-light-3 small-medium md:base-regular mt-2">
-          Welcome back! Please enter your details.
+          Hoşgeldiniz! Bilgilerinizi Giriniz.
         </p>
         <form
           onSubmit={form.handleSubmit(handleSignin)}
@@ -85,7 +85,7 @@ const SigninForm = () => {
             name="password"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="shad-form_label">Password</FormLabel>
+                <FormLabel className="shad-form_label">Şifre</FormLabel>
                 <FormControl>
                   <Input type="password" className="shad-input" {...field} />
                 </FormControl>
@@ -97,19 +97,19 @@ const SigninForm = () => {
           <Button type="submit" className="shad-button_primary">
             {isLoading || isUserLoading ? (
               <div className="flex-center gap-2">
-                <Loader /> Loading...
+                <Loader /> Yükleniyor...
               </div>
             ) : (
-              "Log in"
+              "Giriş Yap"
             )}
           </Button>
 
           <p className="text-small-regular text-light-2 text-center mt-2">
-            Don&apos;t have an account?
+            Hesabınız Yok Mu?
             <Link
               to="/sign-up"
               className="text-primary-500 text-small-semibold ml-1">
-              Sign up
+              Kaydol
             </Link>
           </p>
         </form>

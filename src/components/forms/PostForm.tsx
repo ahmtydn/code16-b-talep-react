@@ -89,7 +89,7 @@ const PostForm = ({ post, action }: PostFormProps) => {
           name="caption"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="shad-form_label">Caption</FormLabel>
+              <FormLabel className="shad-form_label">Altyazı</FormLabel>
               <FormControl>
                 <Textarea
                   className="shad-textarea custom-scrollbar"
@@ -106,7 +106,7 @@ const PostForm = ({ post, action }: PostFormProps) => {
           name="file"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="shad-form_label">Add Photos</FormLabel>
+              <FormLabel className="shad-form_label">Fotoğraf Ekle</FormLabel>
               <FormControl>
                 <FileUploader
                   fieldChange={field.onChange}
@@ -123,7 +123,7 @@ const PostForm = ({ post, action }: PostFormProps) => {
           name="location"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="shad-form_label">Add Location</FormLabel>
+              <FormLabel className="shad-form_label">Konum Ekle</FormLabel>
               <FormControl>
                 <Input type="text" className="shad-input" {...field} />
               </FormControl>
@@ -138,11 +138,11 @@ const PostForm = ({ post, action }: PostFormProps) => {
           render={({ field }) => (
             <FormItem>
               <FormLabel className="shad-form_label">
-                Add Tags (separated by comma " , ")
+                Etiket Ekle (Virgül ile Ayrılmış " , ")
               </FormLabel>
               <FormControl>
                 <Input
-                  placeholder="Art, Expression, Learn"
+                  placeholder="Sanat, İfade, Bilim"
                   type="text"
                   className="shad-input"
                   {...field}
@@ -158,7 +158,7 @@ const PostForm = ({ post, action }: PostFormProps) => {
             type="button"
             className="shad-button_dark_4"
             onClick={() => navigate(-1)}>
-            Cancel
+            İptal
           </Button>
           <Button
             type="submit"
