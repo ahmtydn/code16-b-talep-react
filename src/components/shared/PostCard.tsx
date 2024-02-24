@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { PostStats } from '@/components/shared';
 import { multiFormatDateString } from '@/lib/utils';
 import { useUserContext } from '@/context/AuthContext';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import CommentSection from './CommentSection';
 import {
   useGetCommentsByPostId,

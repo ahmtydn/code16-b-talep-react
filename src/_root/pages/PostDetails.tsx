@@ -11,13 +11,12 @@ import {
 } from "@/lib/react-query/queries";
 import { multiFormatDateString } from "@/lib/utils";
 import { useUserContext } from "@/context/AuthContext";
-import { SetStateAction, useState } from "react";
+import { SetStateAction, } from "react";
 
 const PostDetails = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const { user } = useUserContext();
-  const [showComments, setShowComments] = useState(false);
   const { data: post, isLoading } = useGetPostById(id);
   const { data: userPosts, isLoading: isUserPostLoading } = useGetUserPosts(
     post?.creator.$id
