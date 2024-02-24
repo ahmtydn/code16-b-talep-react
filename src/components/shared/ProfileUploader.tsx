@@ -1,107 +1,49 @@
-import { Models } from "appwrite";
-import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useCallback, useState } from "react";
+import { FileWithPath, useDropzone } from "react-dropzone";
 
-import { checkIsLiked } from "@/lib/utils";
-import {
-  useLikePost,
-  useSavePost,
-  useDeleteSavedPost,
-  useGetCurrentUser,
-} from "@/lib/react-query/queries";
+import { convertFileToUrl } from "@/lib/utils";
 
-type PostStatsProps = {
-  post: Models.Document;
-  userId: string;
+type ProfileUploaderProps = {
+  fieldChange: (files: File[]) => void;
+  mediaUrl: string;
 };
 
-const PostStats = ({ post, userId }: PostStatsProps) => {
-  const location = useLocation();
-  const likesList = post.likes.map((user: Models.Document) => user.$id);
+const ProfileUploader = ({ fieldChange, mediaUrl }: ProfileUploaderProps) => {
+  const [file, setFile] = useState<File[]>([]);
+  const [fileUrl, setFileUrl] = useState<string>(mediaUrl);
 
-  const [likes, setLikes] = useState<string[]>(likesList);
-  const [isSaved, setIsSaved] = useState(false);
-
-  const { mutate: likePost } = useLikePost();
-  const { mutate: savePost } = useSavePost();
-  const { mutate: deleteSavePost } = useDeleteSavedPost();
-
-  const { data: currentUser } = useGetCurrentUser();
-
-  const savedPostRecord = currentUser?.save.find(
-    (record: Models.Document) => record.post.$id === post.$id
+  const onDrop = useCallback(
+    (acceptedFiles: FileWithPath[]) => {
+      setFile(acceptedFiles);
+      fieldChange(acceptedFiles);
+      setFileUrl(convertFileToUrl(acceptedFiles[0]));
+    },
+    [file]
   );
 
-  useEffect(() => {
-    setIsSaved(!!savedPostRecord);
-  }, [currentUser]);
-
-  const handleLikePost = (
-    e: React.MouseEvent<HTMLImageElement, MouseEvent>
-  ) => {
-    e.stopPropagation();
-
-    let likesArray = [...likes];
-
-    if (likesArray.includes(userId)) {
-      likesArray = likesArray.filter((Id) => Id !== userId);
-    } else {
-      likesArray.push(userId);
-    }
-
-    setLikes(likesArray);
-    likePost({ postId: post.$id, likesArray });
-  };
-
-  const handleSavePost = (
-    e: React.MouseEvent<HTMLImageElement, MouseEvent>
-  ) => {
-    e.stopPropagation();
-
-    if (savedPostRecord) {
-      setIsSaved(false);
-      return deleteSavePost(savedPostRecord.$id);
-    }
-
-    savePost({ userId: userId, postId: post.$id });
-    setIsSaved(true);
-  };
-
-  const containerStyles = location.pathname.startsWith("/profile")
-    ? "w-full"
-    : "";
+  const { getRootProps, getInputProps } = useDropzone({
+    onDrop,
+    accept: {
+      "image/*": [".png", ".jpeg", ".jpg"],
+    },
+  });
 
   return (
-    <div
-      className={`flex justify-between items-center z-20 ${containerStyles}`}>
-      <div className="flex gap-2 mr-5">
-        <img
-          src={`${
-            checkIsLiked(likes, userId)
-              ? "/assets/icons/liked.svg"
-              : "/assets/icons/like.svg"
-          }`}
-          alt="like"
-          width={20}
-          height={20}
-          onClick={(e) => handleLikePost(e)}
-          className="cursor-pointer"
-        />
-        <p className="small-medium lg:base-medium">{likes.length}</p>
-      </div>
+    <div {...getRootProps()}>
+      <input {...getInputProps()} className="cursor-pointer" />
 
-      <div className="flex gap-2">
+      <div className="cursor-pointer flex-center gap-4">
         <img
-          src={isSaved ? "/assets/icons/saved.svg" : "/assets/icons/save.svg"}
-          alt="share"
-          width={20}
-          height={20}
-          className="cursor-pointer"
-          onClick={(e) => handleSavePost(e)}
+          src={fileUrl || "/assets/icons/profile-placeholder.svg"}
+          alt="image"
+          className="h-24 w-24 rounded-full object-cover object-top"
         />
+        <p className="small-regular md:bbase-semibold">
+          Profil fotoğrafını değiştir
+        </p>
       </div>
     </div>
   );
 };
 
-export default PostStats;
+export default ProfileUploader;

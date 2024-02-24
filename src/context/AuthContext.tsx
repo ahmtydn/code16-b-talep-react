@@ -6,10 +6,10 @@ import { getCurrentUser } from "@/lib/appwrite/api";
 
 export const INITIAL_USER = {
   id: "",
-  isim: "",
-  kullaniciadi: "",
-  eposta: "",
-  resimUrl: "",
+  name: "",
+  username: "",
+  email: "",
+  imageUrl: "",
   bio: "",
 };
 
@@ -17,8 +17,8 @@ const INITIAL_STATE = {
   user: INITIAL_USER,
   isLoading: false,
   isAuthenticated: false,
-  setUser: () => {},
-  setIsAuthenticated: () => {},
+  setUser: () => { },
+  setIsAuthenticated: () => { },
   checkAuthUser: async () => false as boolean,
 };
 
@@ -46,10 +46,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       if (currentAccount) {
         setUser({
           id: currentAccount.$id,
-          isim: currentAccount.isim,
+          name: currentAccount.name,
           username: currentAccount.username,
-          eposta: currentAccount.eposta,
-          resimUrl: currentAccount.resimUrl,
+          email: currentAccount.email,
+          imageUrl: currentAccount.imageUrl,
           bio: currentAccount.bio,
         });
         setIsAuthenticated(true);

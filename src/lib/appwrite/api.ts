@@ -413,7 +413,7 @@ export async function getCommentsByPostId(postId: string) {
     return comments;
   } catch (error) {
     console.log(error);
-    return []; 
+    return [];
   }
 }
 // ============================== SAVE POST
