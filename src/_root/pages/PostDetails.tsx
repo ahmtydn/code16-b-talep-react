@@ -11,13 +11,13 @@ import {
 } from "@/lib/react-query/queries";
 import { multiFormatDateString } from "@/lib/utils";
 import { useUserContext } from "@/context/AuthContext";
-import { SetStateAction } from "react";
+import { SetStateAction, useState } from "react";
 
 const PostDetails = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const { user } = useUserContext();
-
+  const [showComments, setShowComments] = useState(false);
   const { data: post, isLoading } = useGetPostById(id);
   const { data: userPosts, isLoading: isUserPostLoading } = useGetUserPosts(
     post?.creator.$id
@@ -46,7 +46,7 @@ const PostDetails = () => {
             width={24}
             height={24}
           />
-          <p className="small-medium lg:base-medium">Geri</p>
+          <p className="small-medium lg:base-medium">Geri Dön</p>
         </Button>
       </div>
 
@@ -104,9 +104,8 @@ const PostDetails = () => {
                 <Button
                   onClick={handleDeletePost}
                   variant="ghost"
-                  className={`ost_details-delete_btn ${
-                    user.id !== post?.creator.$id && "hidden"
-                  }`}>
+                  className={`ost_details-delete_btn ${user.id !== post?.creator.$id && "hidden"
+                    }`}>
                   <img
                     src={"/assets/icons/delete.svg"}
                     alt="delete"
@@ -133,9 +132,9 @@ const PostDetails = () => {
             </div>
 
             <div className="w-full">
-              <PostStats post={post} userId={user.id} setShowComments={function (_value: SetStateAction<boolean>): void {
-                  throw new Error("İşlev uygulanmadı.");
-                } } showComments={false} commentsLength={0} />
+              <PostStats post={post} userId={user.id} setShowComments={function (value: SetStateAction<boolean>): void {
+                throw new Error("Function not implemented.");
+              }} showComments={false} commentsLength={0} />
             </div>
           </div>
         </div>
@@ -145,7 +144,7 @@ const PostDetails = () => {
         <hr className="border w-full border-dark-4/80" />
 
         <h3 className="body-bold md:h3-bold w-full my-10">
-          İlgili Postlar
+          İlgili Gönderiler
         </h3>
         {isUserPostLoading || !relatedPosts ? (
           <Loader />

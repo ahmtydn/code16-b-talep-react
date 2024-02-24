@@ -44,9 +44,9 @@ const GridPostList = ({
                 <p className="line-clamp-1">{post.creator.name}</p>
               </div>
             )}
-            {showStats && <PostStats post={post} userId={user.id} setShowComments={function (_value: SetStateAction<boolean>): void {
+            {showStats && <PostStats post={post} userId={user.id} setShowComments={function (value: SetStateAction<boolean>): void {
               throw new Error("Function not implemented.");
-            } } showComments={false} commentsLength={0} />}
+            }} showComments={false} commentsLength={0} />}
           </div>
         </li>
       ))}

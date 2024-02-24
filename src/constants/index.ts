@@ -2,7 +2,7 @@ export const sidebarLinks = [
   {
     imgURL: "/assets/icons/home.svg",
     route: "/",
-    label: "Anasayfa",
+    label: "Ana Sayfa",
   },
   {
     imgURL: "/assets/icons/wallpaper.svg",
@@ -12,7 +12,7 @@ export const sidebarLinks = [
   {
     imgURL: "/assets/icons/people.svg",
     route: "/all-users",
-    label: "Kullanıcılar",
+    label: "Kişiler",
   },
   {
     imgURL: "/assets/icons/bookmark.svg",
@@ -22,7 +22,7 @@ export const sidebarLinks = [
   {
     imgURL: "/assets/icons/gallery-add.svg",
     route: "/create-post",
-    label: "Posta Oluştur",
+    label: "Gönderi Oluştur",
   },
 ];
 
@@ -45,6 +45,7 @@ export const bottombarLinks = [
   {
     imgURL: "/assets/icons/gallery-add.svg",
     route: "/create-post",
-    label: "Oluştur",
+    label: "Gönderi Oluştur",
   },
 ];
+

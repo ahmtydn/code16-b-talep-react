@@ -9,7 +9,7 @@ const AllUsers = () => {
 
   if (isErrorCreators) {
     toast({ title: "Birşeyler ters gitti." });
-    
+
     return;
   }
 

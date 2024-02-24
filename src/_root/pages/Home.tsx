@@ -22,10 +22,10 @@ const Home = () => {
     return (
       <div className="flex flex-1">
         <div className="home-container">
-          <p className="body-medium text-light-1">Birşeyler Yanlış Gitti</p>
+          <p className="body-medium text-light-1">Birşeyler ters gitti</p>
         </div>
         <div className="home-creators">
-          <p className="body-medium text-light-1">Birşeyler Yanlış Gitti</p>
+          <p className="body-medium text-light-1">Birşeyler ters gitti</p>
         </div>
       </div>
     );
@@ -35,36 +35,40 @@ const Home = () => {
     <div className="flex flex-1">
       <div className="home-container">
         <div className="home-posts">
-          <h2 className="h3-bold md:h2-bold text-left w-full">Ana Akış</h2>
-          {isPostLoading && !posts ? (
+          <h2 className="h3-bold md:h2-bold text-left w-full">Ana Gönderiler</h2>
+          {
+            isPostLoading && !posts ? (
+              <Loader />
+            ) : (
+              <ul className="flex flex-col flex-1 gap-9 w-full ">
+                {posts?.documents.map((post: Models.Document) => (
+                  <li key={post.$id} className="flex justify-center w-full">
+                    <PostCard post={post} />
+                  </li>
+                ))}
+              </ul>
+            )
+          }
+        </div >
+      </div >
+
+      <div className="home-creators">
+        <h3 className="h3-bold text-light-1">Başlıca Önerenler</h3>
+        {
+          isUserLoading && !creators ? (
             <Loader />
           ) : (
-            <ul className="flex flex-col flex-1 gap-9 w-full ">
-              {posts?.documents.map((post: Models.Document) => (
-                <li key={post.$id} className="flex justify-center w-full">
-                  <PostCard post={post} />
+            <ul className="grid 2xl:grid-cols-2 gap-6">
+              {creators?.documents.map((creator) => (
+                <li key={creator?.$id}>
+                  <UserCard user={creator} />
                 </li>
               ))}
             </ul>
-          )}
-        </div>
-      </div>
-
-      <div className="home-creators">
-        <h3 className="h3-bold text-light-1">En İyi Oluşturucular</h3>
-        {isUserLoading && !creators ? (
-          <Loader />
-        ) : (
-          <ul className="grid 2xl:grid-cols-2 gap-6">
-            {creators?.documents.map((creator) => (
-              <li key={creator?.$id}>
-                <UserCard user={creator} />
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
-    </div>
+          )
+        }
+      </div >
+    </div >
   );
 };
 

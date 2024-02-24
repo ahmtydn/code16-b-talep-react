@@ -23,7 +23,7 @@ import { useCreatePost, useUpdatePost } from "@/lib/react-query/queries";
 
 type PostFormProps = {
   post?: Models.Document;
-  action: "Create" | "Update";
+  action: "Oluştur" | "Güncelle";
 };
 
 const PostForm = ({ post, action }: PostFormProps) => {
@@ -49,7 +49,7 @@ const PostForm = ({ post, action }: PostFormProps) => {
   // Handler
   const handleSubmit = async (value: z.infer<typeof PostValidation>) => {
     // ACTION = UPDATE
-    if (post && action === "Update") {
+    if (post && action === "Güncelle") {
       const updatedPost = await updatePost({
         ...value,
         postId: post.$id,
@@ -59,7 +59,7 @@ const PostForm = ({ post, action }: PostFormProps) => {
 
       if (!updatedPost) {
         toast({
-          title: `${action} post failed. Please try again.`,
+          title: `${action}me başarısız oldu. Lütfen tekrar deneyin.`,
         });
       }
       return navigate(`/posts/${post.$id}`);
@@ -73,7 +73,7 @@ const PostForm = ({ post, action }: PostFormProps) => {
 
     if (!newPost) {
       toast({
-        title: `${action} post failed. Please try again.`,
+        title: `Gönderi ${action}ma başarısız oldu. Lütfen tekrar deneyin.`,
       });
     }
     navigate("/");
@@ -89,7 +89,7 @@ const PostForm = ({ post, action }: PostFormProps) => {
           name="caption"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="shad-form_label">Altyazı</FormLabel>
+              <FormLabel className="shad-form_label">Başlık</FormLabel>
               <FormControl>
                 <Textarea
                   className="shad-textarea custom-scrollbar"
@@ -97,16 +97,16 @@ const PostForm = ({ post, action }: PostFormProps) => {
                 />
               </FormControl>
               <FormMessage className="shad-form_message" />
-            </FormItem>
+            </FormItem >
           )}
         />
 
-        <FormField
+        < FormField
           control={form.control}
           name="file"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="shad-form_label">Fotoğraf Ekle</FormLabel>
+              <FormLabel className="shad-form_label">Görsel Ekle</FormLabel>
               <FormControl>
                 <FileUploader
                   fieldChange={field.onChange}
@@ -114,11 +114,11 @@ const PostForm = ({ post, action }: PostFormProps) => {
                 />
               </FormControl>
               <FormMessage className="shad-form_message" />
-            </FormItem>
+            </FormItem >
           )}
         />
 
-        <FormField
+        < FormField
           control={form.control}
           name="location"
           render={({ field }) => (
@@ -132,44 +132,44 @@ const PostForm = ({ post, action }: PostFormProps) => {
           )}
         />
 
-        <FormField
+        < FormField
           control={form.control}
           name="tags"
           render={({ field }) => (
             <FormItem>
               <FormLabel className="shad-form_label">
-                Etiket Ekle (Virgül ile Ayrılmış " , ")
+                Kategori Ekle (Virgül ile ayırınız. " , ")
               </FormLabel>
               <FormControl>
                 <Input
-                  placeholder="Sanat, İfade, Bilim"
+                  placeholder="Çevre, Trafik, Enerji"
                   type="text"
                   className="shad-input"
                   {...field}
                 />
               </FormControl>
               <FormMessage className="shad-form_message" />
-            </FormItem>
+            </FormItem >
           )}
         />
 
-        <div className="flex gap-4 items-center justify-end">
+        < div className="flex gap-4 items-center justify-end" >
           <Button
             type="button"
             className="shad-button_dark_4"
             onClick={() => navigate(-1)}>
-            İptal
-          </Button>
+            İptal Et
+          </Button >
           <Button
             type="submit"
             className="shad-button_primary whitespace-nowrap"
             disabled={isLoadingCreate || isLoadingUpdate}>
             {(isLoadingCreate || isLoadingUpdate) && <Loader />}
-            {action} Post
-          </Button>
-        </div>
-      </form>
-    </Form>
+            {action} ve Yayınla
+          </Button >
+        </div >
+      </form >
+    </Form >
   );
 };
 

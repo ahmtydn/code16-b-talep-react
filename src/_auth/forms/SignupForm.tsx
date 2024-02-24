@@ -39,8 +39,8 @@ const SignupForm = () => {
       const newUser = await createUserAccount(user);
 
       if (!newUser) {
-        toast({ title: "Kayıt başarısız. Tekrar deneyiniz.", });
-        
+        toast({ title: "Sign up failed. Please try again.", });
+
         return;
       }
 
@@ -50,10 +50,10 @@ const SignupForm = () => {
       });
 
       if (!session) {
-        toast({ title: "Birşeyler ters gitti. Yeni hesabınızla giriş yapınız", });
-        
+        toast({ title: "Something went wrong. Please login your new account", });
+
         navigate("/sign-in");
-        
+
         return;
       }
 
@@ -64,8 +64,8 @@ const SignupForm = () => {
 
         navigate("/");
       } else {
-        toast({ title: "Giriş başarısız. Tekrar deneyiniz.", });
-        
+        toast({ title: "Login failed. Please try again.", });
+
         return;
       }
     } catch (error) {
@@ -76,13 +76,13 @@ const SignupForm = () => {
   return (
     <Form {...form}>
       <div className="sm:w-420 flex-center flex-col">
-      <Logo></Logo>
+        <Logo></Logo>
 
         <h2 className="h3-bold md:h2-bold pt-5 sm:pt-12">
-          Yeni Hesap Oluştur
+          Yeni hesap oluştur
         </h2>
         <p className="text-light-3 small-medium md:base-regular mt-2">
-          B-Talep'i Kullanmak İçin, Bilgilerinizi Giriniz
+          B-Talep'i kullanmak için üye olunuz.
         </p>
 
         <form
@@ -107,30 +107,30 @@ const SignupForm = () => {
             name="username"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="shad-form_label">Soy İsim</FormLabel>
+                <FormLabel className="shad-form_label">Soyisim</FormLabel>
                 <FormControl>
                   <Input type="text" className="shad-input" {...field} />
                 </FormControl>
                 <FormMessage />
-              </FormItem>
+              </FormItem >
             )}
           />
 
-          <FormField
+          < FormField
             control={form.control}
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="shad-form_label">Email</FormLabel>
+                <FormLabel className="shad-form_label">E-Posta</FormLabel>
                 <FormControl>
                   <Input type="text" className="shad-input" {...field} />
                 </FormControl>
                 <FormMessage />
-              </FormItem>
+              </FormItem >
             )}
           />
 
-          <FormField
+          < FormField
             control={form.control}
             name="password"
             render={({ field }) => (
@@ -144,27 +144,27 @@ const SignupForm = () => {
             )}
           />
 
-          <Button type="submit" className="shad-button_primary">
+          < Button type="submit" className="shad-button_primary" >
             {isCreatingAccount || isSigningInUser || isUserLoading ? (
               <div className="flex-center gap-2">
                 <Loader /> Yükleniyor...
               </div>
             ) : (
-              "Kaydol"
+              "Üye Ol"
             )}
-          </Button>
+          </Button >
 
           <p className="text-small-regular text-light-2 text-center mt-2">
-            Zaten Hesabın Var Mı?
+            Zaten üye misiniz?
             <Link
               to="/sign-in"
               className="text-primary-500 text-small-semibold ml-1">
               Giriş Yap
             </Link>
-          </p>
-        </form>
-      </div>
-    </Form>
+          </p >
+        </form >
+      </div >
+    </Form >
   );
 };
 

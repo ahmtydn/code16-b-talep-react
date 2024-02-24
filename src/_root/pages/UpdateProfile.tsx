@@ -145,7 +145,7 @@ const UpdateProfile = () => {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="shad-form_label">Email</FormLabel>
+                  <FormLabel className="shad-form_label">E-Posta</FormLabel>
                   <FormControl>
                     <Input
                       type="text"
@@ -155,16 +155,16 @@ const UpdateProfile = () => {
                     />
                   </FormControl>
                   <FormMessage />
-                </FormItem>
+                </FormItem >
               )}
             />
 
-            <FormField
+            < FormField
               control={form.control}
               name="bio"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="shad-form_label">Bio</FormLabel>
+                  <FormLabel className="shad-form_label">Hakkında</FormLabel>
                   <FormControl>
                     <Textarea
                       className="shad-textarea custom-scrollbar"
@@ -172,17 +172,17 @@ const UpdateProfile = () => {
                     />
                   </FormControl>
                   <FormMessage className="shad-form_message" />
-                </FormItem>
+                </FormItem >
               )}
             />
 
-            <div className="flex gap-4 items-center justify-end">
+            < div className="flex gap-4 items-center justify-end" >
               <Button
                 type="button"
                 className="shad-button_dark_4"
                 onClick={() => navigate(-1)}>
-                İptal
-              </Button>
+                İptal Et
+              </Button >
               <Button
                 type="submit"
                 className="shad-button_primary whitespace-nowrap"
@@ -190,11 +190,11 @@ const UpdateProfile = () => {
                 {isLoadingUpdate && <Loader />}
                 Profili Güncelle
               </Button>
-            </div>
-          </form>
-        </Form>
-      </div>
-    </div>
+            </div >
+          </form >
+        </Form >
+      </div >
+    </div >
   );
 };
 
