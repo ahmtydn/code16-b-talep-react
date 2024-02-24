@@ -39,7 +39,7 @@ const SignupForm = () => {
       const newUser = await createUserAccount(user);
 
       if (!newUser) {
-        toast({ title: "Kaydolma işlemi başarısız oldu. Lütfen tekrar deneyin.", });
+        toast({ title: "Sign up failed. Please try again.", });
 
         return;
       }
@@ -50,7 +50,7 @@ const SignupForm = () => {
       });
 
       if (!session) {
-        toast({ title: "Bir şeyler yanlış gitti. Lütfen yeni hesabınıza giriş yapın", });
+        toast({ title: "Something went wrong. Please login your new account", });
 
         navigate("/sign-in");
 
@@ -64,7 +64,7 @@ const SignupForm = () => {
 
         navigate("/");
       } else {
-        toast({ title: "Giriş başarısız oldu. Lütfen tekrar deneyin.", });
+        toast({ title: "Login failed. Please try again.", });
 
         return;
       }
@@ -79,10 +79,10 @@ const SignupForm = () => {
         <Logo></Logo>
 
         <h2 className="h3-bold md:h2-bold pt-5 sm:pt-12">
-          Yeni bir hesap oluşturun
+          Yeni hesap oluştur
         </h2>
         <p className="text-light-3 small-medium md:base-regular mt-2">
-          B-Talep'i kullanmak için lütfen bilgilerinizi girin.
+          B-Talep'i kullanmak için üye olunuz.
         </p>
 
         <form
@@ -93,30 +93,30 @@ const SignupForm = () => {
             name="name"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="shad-form_label">Ad</FormLabel>
+                <FormLabel className="shad-form_label">İsim</FormLabel>
                 <FormControl>
                   <Input type="text" className="shad-input" {...field} />
                 </FormControl>
                 <FormMessage />
-              </FormItem >
+              </FormItem>
             )}
           />
 
-          < FormField
+          <FormField
             control={form.control}
             name="username"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="shad-form_label">Soyad</FormLabel>
+                <FormLabel className="shad-form_label">Soyisim</FormLabel>
                 <FormControl>
                   <Input type="text" className="shad-input" {...field} />
                 </FormControl>
                 <FormMessage />
-              </FormItem >
+              </FormItem>
             )}
           />
 
-          < FormField
+          <FormField
             control={form.control}
             name="email"
             render={({ field }) => (
@@ -126,11 +126,11 @@ const SignupForm = () => {
                   <Input type="text" className="shad-input" {...field} />
                 </FormControl>
                 <FormMessage />
-              </FormItem >
+              </FormItem>
             )}
           />
 
-          < FormField
+          <FormField
             control={form.control}
             name="password"
             render={({ field }) => (
@@ -140,31 +140,31 @@ const SignupForm = () => {
                   <Input type="password" className="shad-input" {...field} />
                 </FormControl>
                 <FormMessage />
-              </FormItem >
+              </FormItem>
             )}
           />
 
-          < Button type="submit" className="shad-button_primary" >
+          <Button type="submit" className="shad-button_primary">
             {isCreatingAccount || isSigningInUser || isUserLoading ? (
               <div className="flex-center gap-2">
                 <Loader /> Yükleniyor...
               </div>
             ) : (
-              "Kayıt Ol"
+              "Üye Ol"
             )}
-          </Button >
+          </Button>
 
           <p className="text-small-regular text-light-2 text-center mt-2">
-            Zaten bir hesabınız var mı?
+            Zaten üye misiniz?
             <Link
               to="/sign-in"
               className="text-primary-500 text-small-semibold ml-1">
               Giriş Yap
             </Link>
           </p>
-        </form >
-      </div >
-    </Form >
+        </form>
+      </div>
+    </Form>
   );
 };
 

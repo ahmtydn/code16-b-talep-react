@@ -60,7 +60,7 @@ const UpdateProfile = () => {
 
     if (!updatedUser) {
       toast({
-        title: `Kullanıcı güncelleme başarısız oldu. Lütfen tekrar deneyin.`,
+        title: `Update user failed. Please try again.`,
       });
     }
 
@@ -112,7 +112,7 @@ const UpdateProfile = () => {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="shad-form_label">Ad</FormLabel>
+                  <FormLabel className="shad-form_label">İsim</FormLabel>
                   <FormControl>
                     <Input type="text" className="shad-input" {...field} />
                   </FormControl>
@@ -126,7 +126,7 @@ const UpdateProfile = () => {
               name="username"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="shad-form_label">Soyad</FormLabel>
+                  <FormLabel className="shad-form_label">Kullanıcı Adı</FormLabel>
                   <FormControl>
                     <Input
                       type="text"
@@ -164,7 +164,7 @@ const UpdateProfile = () => {
               name="bio"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="shad-form_label">Bio</FormLabel>
+                  <FormLabel className="shad-form_label">Hakkında</FormLabel>
                   <FormControl>
                     <Textarea
                       className="shad-textarea custom-scrollbar"

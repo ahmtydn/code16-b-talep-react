@@ -70,7 +70,7 @@ const Explore = () => {
             }}
           />
         </div>
-      </div >
+      </div>
 
       <div className="flex-between w-full max-w-5xl mt-16 mb-7">
         <h3 className="body-bold md:h3-bold">Popüler Gönderiler</h3>
@@ -93,7 +93,7 @@ const Explore = () => {
             searchedPosts={searchedPosts}
           />
         ) : shouldShowPosts ? (
-          <p className="text-light-4 mt-10 text-center w-full">Gönderilerin Sonu</p>
+          <p className="text-light-4 mt-10 text-center w-full">Tüm gönderiler gösterildi.</p>
         ) : (
           posts.pages.map((item, index) => (
             <GridPostList key={`page-${index}`} posts={item.documents} />
@@ -101,14 +101,12 @@ const Explore = () => {
         )}
       </div>
 
-      {
-        hasNextPage && !searchValue && (
-          <div ref={ref} className="mt-10">
-            <Loader />
-          </div>
-        )
-      }
-    </div >
+      {hasNextPage && !searchValue && (
+        <div ref={ref} className="mt-10">
+          <Loader />
+        </div>
+      )}
+    </div>
   );
 };
 
