@@ -60,7 +60,7 @@ const UpdateProfile = () => {
 
     if (!updatedUser) {
       toast({
-        title: `Update user failed. Please try again.`,
+        title: `Kullanıcı güncellenemedi. Lütfen tekrar deneyin.`,
       });
     }
 
@@ -155,11 +155,11 @@ const UpdateProfile = () => {
                     />
                   </FormControl>
                   <FormMessage />
-                </FormItem>
+                </FormItem >
               )}
             />
 
-            <FormField
+            < FormField
               control={form.control}
               name="bio"
               render={({ field }) => (
@@ -172,17 +172,17 @@ const UpdateProfile = () => {
                     />
                   </FormControl>
                   <FormMessage className="shad-form_message" />
-                </FormItem>
+                </FormItem >
               )}
             />
 
-            <div className="flex gap-4 items-center justify-end">
+            < div className="flex gap-4 items-center justify-end" >
               <Button
                 type="button"
                 className="shad-button_dark_4"
                 onClick={() => navigate(-1)}>
                 İptal Et
-              </Button>
+              </Button >
               <Button
                 type="submit"
                 className="shad-button_primary whitespace-nowrap"
@@ -190,11 +190,11 @@ const UpdateProfile = () => {
                 {isLoadingUpdate && <Loader />}
                 Profili Güncelle
               </Button>
-            </div>
-          </form>
-        </Form>
-      </div>
-    </div>
+            </div >
+          </form >
+        </Form >
+      </div >
+    </div >
   );
 };
 

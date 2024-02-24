@@ -70,7 +70,7 @@ const Explore = () => {
             }}
           />
         </div>
-      </div>
+      </div >
 
       <div className="flex-between w-full max-w-5xl mt-16 mb-7">
         <h3 className="body-bold md:h3-bold">Popüler Gönderiler</h3>
@@ -101,12 +101,14 @@ const Explore = () => {
         )}
       </div>
 
-      {hasNextPage && !searchValue && (
-        <div ref={ref} className="mt-10">
-          <Loader />
-        </div>
-      )}
-    </div>
+      {
+        hasNextPage && !searchValue && (
+          <div ref={ref} className="mt-10">
+            <Loader />
+          </div>
+        )
+      }
+    </div >
   );
 };
 

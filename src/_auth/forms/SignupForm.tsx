@@ -112,11 +112,11 @@ const SignupForm = () => {
                   <Input type="text" className="shad-input" {...field} />
                 </FormControl>
                 <FormMessage />
-              </FormItem>
+              </FormItem >
             )}
           />
 
-          <FormField
+          < FormField
             control={form.control}
             name="email"
             render={({ field }) => (
@@ -126,11 +126,11 @@ const SignupForm = () => {
                   <Input type="text" className="shad-input" {...field} />
                 </FormControl>
                 <FormMessage />
-              </FormItem>
+              </FormItem >
             )}
           />
 
-          <FormField
+          < FormField
             control={form.control}
             name="password"
             render={({ field }) => (
@@ -144,7 +144,7 @@ const SignupForm = () => {
             )}
           />
 
-          <Button type="submit" className="shad-button_primary">
+          < Button type="submit" className="shad-button_primary" >
             {isCreatingAccount || isSigningInUser || isUserLoading ? (
               <div className="flex-center gap-2">
                 <Loader /> Yükleniyor...
@@ -152,7 +152,7 @@ const SignupForm = () => {
             ) : (
               "Üye Ol"
             )}
-          </Button>
+          </Button >
 
           <p className="text-small-regular text-light-2 text-center mt-2">
             Zaten üye misiniz?
@@ -161,10 +161,10 @@ const SignupForm = () => {
               className="text-primary-500 text-small-semibold ml-1">
               Giriş Yap
             </Link>
-          </p>
-        </form>
-      </div>
-    </Form>
+          </p >
+        </form >
+      </div >
+    </Form >
   );
 };
 

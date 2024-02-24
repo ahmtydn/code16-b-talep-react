@@ -97,11 +97,11 @@ const PostForm = ({ post, action }: PostFormProps) => {
                 />
               </FormControl>
               <FormMessage className="shad-form_message" />
-            </FormItem>
+            </FormItem >
           )}
         />
 
-        <FormField
+        < FormField
           control={form.control}
           name="file"
           render={({ field }) => (
@@ -114,11 +114,11 @@ const PostForm = ({ post, action }: PostFormProps) => {
                 />
               </FormControl>
               <FormMessage className="shad-form_message" />
-            </FormItem>
+            </FormItem >
           )}
         />
 
-        <FormField
+        < FormField
           control={form.control}
           name="location"
           render={({ field }) => (
@@ -132,7 +132,7 @@ const PostForm = ({ post, action }: PostFormProps) => {
           )}
         />
 
-        <FormField
+        < FormField
           control={form.control}
           name="tags"
           render={({ field }) => (
@@ -149,27 +149,27 @@ const PostForm = ({ post, action }: PostFormProps) => {
                 />
               </FormControl>
               <FormMessage className="shad-form_message" />
-            </FormItem>
+            </FormItem >
           )}
         />
 
-        <div className="flex gap-4 items-center justify-end">
+        < div className="flex gap-4 items-center justify-end" >
           <Button
             type="button"
             className="shad-button_dark_4"
             onClick={() => navigate(-1)}>
             İptal Et
-          </Button>
+          </Button >
           <Button
             type="submit"
             className="shad-button_primary whitespace-nowrap"
             disabled={isLoadingCreate || isLoadingUpdate}>
             {(isLoadingCreate || isLoadingUpdate) && <Loader />}
             {action} ve Yayınla
-          </Button>
-        </div>
-      </form>
-    </Form>
+          </Button >
+        </div >
+      </form >
+    </Form >
   );
 };
 
