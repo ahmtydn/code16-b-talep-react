@@ -11,7 +11,6 @@ import {
 } from "@/lib/react-query/queries";
 import { multiFormatDateString } from "@/lib/utils";
 import { useUserContext } from "@/context/AuthContext";
-import { SetStateAction, } from "react";
 
 const PostDetails = () => {
   const navigate = useNavigate();
@@ -131,7 +130,7 @@ const PostDetails = () => {
             </div>
 
             <div className="w-full">
-              <PostStats post={post} userId={user.id} setShowComments={function (value: SetStateAction<boolean>): void {
+              <PostStats post={post} userId={user.id} setShowComments={function (): void {
                 throw new Error("Function not implemented.");
               }} showComments={false} commentsLength={0} />
             </div>
