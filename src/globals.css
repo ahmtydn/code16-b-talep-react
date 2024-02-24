@@ -361,3 +361,70 @@
   background-color: #9d9b9b;
   border-radius: 50%;
 }
+
+/* AnnouncementCard.css */
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  @apply bg-dark-2 rounded-3xl border border-dark-4 p-5 lg:p-7 w-full max-w-screen-sm;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  box-sizing: border-box;
+  width: 100%;
+  margin-bottom: 20px;
+  max-height: 450px;
+  overflow: hidden;
+  position: relative;
+}
+.announcement-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+  position: relative;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+.card-container h3 {
+  font-size: 1rem;
+  color: #5fa0ff;
+  margin-bottom: 1px;
+}
+
+.card-container p {
+  color: white;
+  line-height: 1.6;
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+
+.card-container strong {
+  font-weight: bold;
+}
+
+.card-container p strong {
+  color: white;
+}
+
+.card-container .date {
+  bottom: 10px;
+  right: 10px;
+  padding-left: 10px;
+  font-size: 12px;
+  color: #999;
+}
+
+/* Media query for responsiveness */
+@media (min-width: 768px) {
+  .card-container {
+    flex-direction: row;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+}

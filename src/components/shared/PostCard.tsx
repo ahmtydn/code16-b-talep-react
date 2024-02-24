@@ -22,10 +22,6 @@ const PostCard = ({ post }: PostCardProps) => {
 
   if (!post.creator) return;
 
-  useEffect(() => {
-    console.log('showComments', showComments);
-  }, [showComments]);
-
   const [comment, setComment] = useState('');
   const [comments, setComments] = useState<Models.Document[]>([]);
   const { mutateAsync: sendComment } = useSendComment();

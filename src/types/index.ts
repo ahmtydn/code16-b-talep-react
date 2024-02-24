@@ -46,3 +46,12 @@ export type INewUser = {
   username: string;
   password: string;
 };
+
+export type IAnnouncement = {
+  haberid?: string | null;
+  baslik?: string | null;
+  icerik?: string | null;
+  tarih?: string | null;
+  baslangictarihi?: string | null;
+  ana_foto?: string | null;
+};

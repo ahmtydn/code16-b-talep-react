@@ -27,6 +27,7 @@ import {
   deleteSavedPost,
   sendComment,
   getCommentsByPostId,
+  getImportantAnnouncements,
 } from '@/lib/appwrite/api';
 import { INewPost, INewUser, IUpdatePost, IUpdateUser, IUser } from '@/types';
 
@@ -243,6 +244,13 @@ export const useGetUsers = (limit?: number) => {
   return useQuery({
     queryKey: [QUERY_KEYS.GET_USERS],
     queryFn: () => getUsers(limit),
+  });
+};
+
+export const useImportantAnnouncements = () => {
+  return useQuery({
+    queryKey: [QUERY_KEYS.IMPORTANT_ANNOUNCEMENTS],
+    queryFn: () => getImportantAnnouncements(),
   });
 };
 
