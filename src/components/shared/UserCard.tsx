@@ -26,7 +26,7 @@ const UserCard = ({ user }: UserCardProps) => {
       </div>
 
       <Button type="button" size="sm" className="shad-button_primary px-5">
-      Takip Et
+        Takip Et
       </Button>
     </Link>
   );

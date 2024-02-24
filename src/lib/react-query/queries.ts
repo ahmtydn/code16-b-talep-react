@@ -30,7 +30,9 @@ import {
 } from '@/lib/appwrite/api';
 import { INewPost, INewUser, IUpdatePost, IUpdateUser, IUser } from '@/types';
 
-
+// ============================================================
+// AUTH QUERIES
+// ============================================================
 
 export const useCreateUserAccount = () => {
   return useMutation({
@@ -51,18 +53,21 @@ export const useSignOutAccount = () => {
   });
 };
 
+// ============================================================
+// POST QUERIES
+// ============================================================
 
 export const useGetPosts = () => {
   return useInfiniteQuery({
     queryKey: [QUERY_KEYS.GET_INFINITE_POSTS],
     queryFn: getInfinitePosts as any,
     getNextPageParam: (lastPage: any) => {
-      
+      // If there's no data, there are no more pages.
       if (lastPage && lastPage.documents.length === 0) {
         return null;
       }
 
-      
+      // Use the $id of the last document as the cursor.
       const lastId = lastPage.documents[lastPage.documents.length - 1].$id;
       return lastId;
     },
@@ -223,7 +228,9 @@ export const useSendComment = () => {
   });
 };
 
-
+// ============================================================
+// USER QUERIES
+// ============================================================
 
 export const useGetCurrentUser = () => {
   return useQuery({

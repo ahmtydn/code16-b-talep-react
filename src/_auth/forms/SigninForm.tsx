@@ -35,7 +35,7 @@ const SigninForm = () => {
 
     if (!session) {
       toast({ title: "Giriş başarısız oldu. Lütfen tekrar deneyin." });
-      
+
       return;
     }
 
@@ -47,7 +47,7 @@ const SigninForm = () => {
       navigate("/");
     } else {
       toast({ title: "Giriş başarısız oldu. Lütfen tekrar deneyin.", });
-      
+
       return;
     }
   };
@@ -55,13 +55,13 @@ const SigninForm = () => {
   return (
     <Form {...form}>
       <div className="sm:w-420 flex-center flex-col">
-    <Logo></Logo>
+        <Logo></Logo>
 
         <h2 className="h3-bold md:h2-bold pt-5 sm:pt-12">
-        Hesabınıza giriş yapın
+          Hesabınıza giriş yapın
         </h2>
         <p className="text-light-3 small-medium md:base-regular mt-2">
-        Tekrar hoş geldiniz! Lütfen bilgilerinizi giriniz.
+          Tekrar hoş geldiniz! Lütfen bilgilerinizi giriniz.
         </p>
         <form
           onSubmit={form.handleSubmit(handleSignin)}
@@ -76,11 +76,11 @@ const SigninForm = () => {
                   <Input type="text" className="shad-input" {...field} />
                 </FormControl>
                 <FormMessage />
-              </FormItem>
+              </FormItem >
             )}
           />
 
-          <FormField
+          < FormField
             control={form.control}
             name="password"
             render={({ field }) => (
@@ -90,11 +90,11 @@ const SigninForm = () => {
                   <Input type="password" className="shad-input" {...field} />
                 </FormControl>
                 <FormMessage />
-              </FormItem>
+              </FormItem >
             )}
           />
 
-          <Button type="submit" className="shad-button_primary">
+          < Button type="submit" className="shad-button_primary" >
             {isLoading || isUserLoading ? (
               <div className="flex-center gap-2">
                 <Loader /> Yükleniyor...
@@ -102,19 +102,19 @@ const SigninForm = () => {
             ) : (
               "Giriş Yap"
             )}
-          </Button>
+          </Button >
 
           <p className="text-small-regular text-light-2 text-center mt-2">
-          Hesabınız yok mu?
+            Hesabınız yok mu?
             <Link
               to="/sign-up"
               className="text-primary-500 text-small-semibold ml-1">
               Kayıt Ol
             </Link>
           </p>
-        </form>
-      </div>
-    </Form>
+        </form >
+      </div >
+    </Form >
   );
 };
 

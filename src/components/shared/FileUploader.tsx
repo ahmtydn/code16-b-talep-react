@@ -25,7 +25,7 @@ const FileUploader = ({ fieldChange, mediaUrl }: FileUploaderProps) => {
   const { getRootProps, getInputProps } = useDropzone({
     onDrop,
     accept: {
-      "Resim/*": [".png", ".jpeg", ".jpg"],
+      "image/*": [".png", ".jpeg", ".jpg"],
     },
   });
 
@@ -52,16 +52,16 @@ const FileUploader = ({ fieldChange, mediaUrl }: FileUploaderProps) => {
           />
 
           <h3 className="base-medium text-light-2 mb-2 mt-6">
-          Fotoğrafı buraya sürükleyin
-          </h3>
+            Fotoğrafı buraya sürükleyin
+          </h3 >
           <p className="text-light-4 small-regular mb-6">SVG, PNG, JPG</p>
 
           <Button type="button" className="shad-button_dark_4">
-          Bilgisayardan seçin
-          </Button>
-        </div>
+            Bilgisayardan seçin
+          </Button >
+        </div >
       )}
-    </div>
+    </div >
   );
 };
 

@@ -23,7 +23,7 @@ import { useCreatePost, useUpdatePost } from "@/lib/react-query/queries";
 
 type PostFormProps = {
   post?: Models.Document;
-  action: "Oluştur" | "Update";
+  action: "Oluştur" | "Güncelle";
 };
 
 const PostForm = ({ post, action }: PostFormProps) => {
@@ -49,7 +49,7 @@ const PostForm = ({ post, action }: PostFormProps) => {
   // Handler
   const handleSubmit = async (value: z.infer<typeof PostValidation>) => {
     // ACTION = UPDATE
-    if (post && action === "Update") {
+    if (post && action === "Güncelle") {
       const updatedPost = await updatePost({
         ...value,
         postId: post.$id,
@@ -97,11 +97,11 @@ const PostForm = ({ post, action }: PostFormProps) => {
                 />
               </FormControl>
               <FormMessage className="shad-form_message" />
-            </FormItem>
+            </FormItem >
           )}
         />
 
-        <FormField
+        < FormField
           control={form.control}
           name="file"
           render={({ field }) => (
@@ -114,11 +114,11 @@ const PostForm = ({ post, action }: PostFormProps) => {
                 />
               </FormControl>
               <FormMessage className="shad-form_message" />
-            </FormItem>
+            </FormItem >
           )}
         />
 
-        <FormField
+        < FormField
           control={form.control}
           name="location"
           render={({ field }) => (
@@ -128,17 +128,17 @@ const PostForm = ({ post, action }: PostFormProps) => {
                 <Input type="text" className="shad-input" {...field} />
               </FormControl>
               <FormMessage className="shad-form_message" />
-            </FormItem>
+            </FormItem >
           )}
         />
 
-        <FormField
+        < FormField
           control={form.control}
           name="tags"
           render={({ field }) => (
             <FormItem>
               <FormLabel className="shad-form_label">
-              Kategori Ekle (virgül ile ayrınız " , ")
+                Kategori Ekle (virgül ile ayrınız " , ")
               </FormLabel>
               <FormControl>
                 <Input
@@ -149,27 +149,27 @@ const PostForm = ({ post, action }: PostFormProps) => {
                 />
               </FormControl>
               <FormMessage className="shad-form_message" />
-            </FormItem>
+            </FormItem >
           )}
         />
 
-        <div className="flex gap-4 items-center justify-end">
+        < div className="flex gap-4 items-center justify-end" >
           <Button
             type="button"
             className="shad-button_dark_4"
             onClick={() => navigate(-1)}>
             İptal Et
-          </Button>
+          </Button >
           <Button
             type="submit"
             className="shad-button_primary whitespace-nowrap"
             disabled={isLoadingCreate || isLoadingUpdate}>
             {(isLoadingCreate || isLoadingUpdate) && <Loader />}
             {action} ve Yayınla
-          </Button>
-        </div>
-      </form>
-    </Form>
+          </Button >
+        </div >
+      </form >
+    </Form >
   );
 };
 

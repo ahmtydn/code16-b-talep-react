@@ -29,7 +29,7 @@ const EditPost = () => {
           <h2 className="h3-bold md:h2-bold text-left w-full">Gönderiyi Düzenle</h2>
         </div>
 
-        {isLoading ? <Loader /> : <PostForm action="Update" post={post} />}
+        {isLoading ? <Loader /> : <PostForm action="Güncelle" post={post} />}
       </div>
     </div>
   );

@@ -75,9 +75,8 @@ const Profile = () => {
             <div className={`${user.id !== currentUser.$id && "hidden"}`}>
               <Link
                 to={`/update-profile/${currentUser.$id}`}
-                className={`h-12 bg-dark-4 px-5 text-light-1 flex-center gap-2 rounded-lg ${
-                  user.id !== currentUser.$id && "hidden"
-                }`}>
+                className={`h-12 bg-dark-4 px-5 text-light-1 flex-center gap-2 rounded-lg ${user.id !== currentUser.$id && "hidden"
+                  }`}>
                 <img
                   src={"/assets/icons/edit.svg"}
                   alt="edit"
@@ -85,49 +84,48 @@ const Profile = () => {
                   height={20}
                 />
                 <p className="flex whitespace-nowrap small-medium">
-                Profili Düzenle
-                </p>
-              </Link>
-            </div>
+                  Profili Düzenle
+                </p >
+              </Link >
+            </div >
             <div className={`${user.id === id && "hidden"}`}>
               <Button type="button" className="shad-button_primary px-8">
-              Takip Et
-              </Button>
-            </div>
-          </div>
-        </div>
-      </div>
+                Takip Et
+              </Button >
+            </div >
+          </div >
+        </div >
+      </div >
 
-      {currentUser.$id === user.id && (
-        <div className="flex max-w-5xl w-full">
-          <Link
-            to={`/profile/${id}`}
-            className={`profile-tab rounded-l-lg ${
-              pathname === `/profile/${id}` && "!bg-dark-3"
-            }`}>
-            <img
-              src={"/assets/icons/posts.svg"}
-              alt="posts"
-              width={20}
-              height={20}
-            />
-            Gönderiler
-          </Link>
-          <Link
-            to={`/profile/${id}/liked-posts`}
-            className={`profile-tab rounded-r-lg ${
-              pathname === `/profile/${id}/liked-posts` && "!bg-dark-3"
-            }`}>
-            <img
-              src={"/assets/icons/like.svg"}
-              alt="like"
-              width={20}
-              height={20}
-            />
-            Beğenilen Gönderiler
-          </Link>
-        </div>
-      )}
+      {
+        currentUser.$id === user.id && (
+          <div className="flex max-w-5xl w-full">
+            <Link
+              to={`/profile/${id}`}
+              className={`profile-tab rounded-l-lg ${pathname === `/profile/${id}` && "!bg-dark-3"
+                }`}>
+              <img
+                src={"/assets/icons/posts.svg"}
+                alt="posts"
+                width={20}
+                height={20}
+              />
+              Gönderiler
+            </Link >
+            <Link
+              to={`/profile/${id}/liked-posts`}
+              className={`profile-tab rounded-r-lg ${pathname === `/profile/${id}/liked-posts` && "!bg-dark-3"
+                }`}>
+              <img
+                src={"/assets/icons/like.svg"}
+                alt="like"
+                width={20}
+                height={20}
+              />
+              Beğenilen Gönderiler
+            </Link >
+          </div >
+        )}
 
       <Routes>
         <Route
@@ -139,7 +137,7 @@ const Profile = () => {
         )}
       </Routes>
       <Outlet />
-    </div>
+    </div >
   );
 };
 
