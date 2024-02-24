@@ -11,12 +11,13 @@ import {
 } from "@/lib/react-query/queries";
 import { multiFormatDateString } from "@/lib/utils";
 import { useUserContext } from "@/context/AuthContext";
+import { SetStateAction, useState } from "react";
 
 const PostDetails = () => {
     const navigate = useNavigate();
     const { id } = useParams();
     const { user } = useUserContext();
-
+    const [showComments, setShowComments] = useState(false);
     const { data: post, isLoading } = useGetPostById(id);
     const { data: userPosts, isLoading: isUserPostLoading } = useGetUserPosts(
         post?.creator.$id
@@ -131,7 +132,9 @@ const PostDetails = () => {
                         </div>
 
                         <div className="w-full">
-                            <PostStats post={post} userId={user.id} />
+                            <PostStats post={post} userId={user.id} setShowComments={function (value: SetStateAction<boolean>): void {
+                                throw new Error("Function not implemented.");
+                            }} showComments={false} commentsLength={0} />
                         </div>
                     </div>
                 </div>
