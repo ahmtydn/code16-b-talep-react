@@ -8,15 +8,15 @@ const AllUsers = () => {
   const { data: creators, isLoading, isError: isErrorCreators } = useGetUsers();
 
   if (isErrorCreators) {
-    toast({ title: "Something went wrong." });
-    
+    toast({ title: "Bir şeyler ters gitti." });
+
     return;
   }
 
   return (
     <div className="common-container">
       <div className="user-container">
-        <h2 className="h3-bold md:h2-bold text-left w-full">All Users</h2>
+        <h2 className="h3-bold md:h2-bold text-left w-full">Tüm Kullanıcılar</h2>
         {isLoading && !creators ? (
           <Loader />
         ) : (

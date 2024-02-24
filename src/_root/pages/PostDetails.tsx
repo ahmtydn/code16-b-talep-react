@@ -11,6 +11,7 @@ import {
 } from "@/lib/react-query/queries";
 import { multiFormatDateString } from "@/lib/utils";
 import { useUserContext } from "@/context/AuthContext";
+import { SetStateAction } from "react";
 
 const PostDetails = () => {
   const navigate = useNavigate();
@@ -45,7 +46,7 @@ const PostDetails = () => {
             width={24}
             height={24}
           />
-          <p className="small-medium lg:base-medium">Back</p>
+          <p className="small-medium lg:base-medium">Geri</p>
         </Button>
       </div>
 
@@ -103,9 +104,8 @@ const PostDetails = () => {
                 <Button
                   onClick={handleDeletePost}
                   variant="ghost"
-                  className={`ost_details-delete_btn ${
-                    user.id !== post?.creator.$id && "hidden"
-                  }`}>
+                  className={`ost_details-delete_btn ${user.id !== post?.creator.$id && "hidden"
+                    }`}>
                   <img
                     src={"/assets/icons/delete.svg"}
                     alt="delete"
@@ -132,7 +132,9 @@ const PostDetails = () => {
             </div>
 
             <div className="w-full">
-              <PostStats post={post} userId={user.id} />
+              <PostStats post={post} userId={user.id} setShowComments={function (value: SetStateAction<boolean>): void {
+                throw new Error("Function not implemented.");
+              }} showComments={false} commentsLength={0} />
             </div>
           </div>
         </div>
@@ -142,15 +144,15 @@ const PostDetails = () => {
         <hr className="border w-full border-dark-4/80" />
 
         <h3 className="body-bold md:h3-bold w-full my-10">
-          More Related Posts
-        </h3>
+          Daha Fazla İlgili Gönderi
+        </h3 >
         {isUserPostLoading || !relatedPosts ? (
           <Loader />
         ) : (
           <GridPostList posts={relatedPosts} />
         )}
-      </div>
-    </div>
+      </div >
+    </div >
   );
 };
 

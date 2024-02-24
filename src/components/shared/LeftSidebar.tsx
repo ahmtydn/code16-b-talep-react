@@ -29,7 +29,7 @@ const LeftSidebar = () => {
     <nav className="leftsidebar">
       <div className="flex flex-col gap-11">
         <Link to="/" className="flex gap-3 items-center">
-      <Logo></Logo>
+          <Logo></Logo>
         </Link>
 
         {isLoading || !user.email ? (
@@ -57,18 +57,16 @@ const LeftSidebar = () => {
             return (
               <li
                 key={link.label}
-                className={`leftsidebar-link group ${
-                  isActive && "bg-primary-500"
-                }`}>
+                className={`leftsidebar-link group ${isActive && "bg-primary-500"
+                  }`}>
                 <NavLink
                   to={link.route}
                   className="flex gap-4 items-center p-4">
                   <img
                     src={link.imgURL}
                     alt={link.label}
-                    className={`group-hover:invert-white ${
-                      isActive && "invert-white"
-                    }`}
+                    className={`group-hover:invert-white ${isActive && "invert-white"
+                      }`}
                   />
                   {link.label}
                 </NavLink>
@@ -83,7 +81,7 @@ const LeftSidebar = () => {
         className="shad-button_ghost"
         onClick={(e) => handleSignOut(e)}>
         <img src="/assets/icons/logout.svg" alt="logout" />
-        <p className="small-medium lg:base-medium">Logout</p>
+        <p className="small-medium lg:base-medium">Oturumu Kapat</p>
       </Button>
     </nav>
   );

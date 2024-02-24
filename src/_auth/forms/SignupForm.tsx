@@ -39,8 +39,8 @@ const SignupForm = () => {
       const newUser = await createUserAccount(user);
 
       if (!newUser) {
-        toast({ title: "Sign up failed. Please try again.", });
-        
+        toast({ title: "Kaydolma işlemi başarısız oldu. Lütfen tekrar deneyin.", });
+
         return;
       }
 
@@ -50,10 +50,10 @@ const SignupForm = () => {
       });
 
       if (!session) {
-        toast({ title: "Something went wrong. Please login your new account", });
-        
+        toast({ title: "Bir şeyler yanlış gitti. Lütfen yeni hesabınıza giriş yapın", });
+
         navigate("/sign-in");
-        
+
         return;
       }
 
@@ -64,8 +64,8 @@ const SignupForm = () => {
 
         navigate("/");
       } else {
-        toast({ title: "Login failed. Please try again.", });
-        
+        toast({ title: "Giriş başarısız oldu. Lütfen tekrar deneyin.", });
+
         return;
       }
     } catch (error) {
@@ -76,13 +76,13 @@ const SignupForm = () => {
   return (
     <Form {...form}>
       <div className="sm:w-420 flex-center flex-col">
-      <Logo></Logo>
+        <Logo></Logo>
 
         <h2 className="h3-bold md:h2-bold pt-5 sm:pt-12">
-          Create a new account
+          Yeni bir hesap oluşturun
         </h2>
         <p className="text-light-3 small-medium md:base-regular mt-2">
-          To use b-talep, Please enter your details
+          B-Talep'i kullanmak için lütfen bilgilerinizi girin.
         </p>
 
         <form
@@ -93,78 +93,78 @@ const SignupForm = () => {
             name="name"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="shad-form_label">Name</FormLabel>
+                <FormLabel className="shad-form_label">Ad</FormLabel>
                 <FormControl>
                   <Input type="text" className="shad-input" {...field} />
                 </FormControl>
                 <FormMessage />
-              </FormItem>
+              </FormItem >
             )}
           />
 
-          <FormField
+          < FormField
             control={form.control}
             name="username"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="shad-form_label">Username</FormLabel>
+                <FormLabel className="shad-form_label">Soyad</FormLabel>
                 <FormControl>
                   <Input type="text" className="shad-input" {...field} />
                 </FormControl>
                 <FormMessage />
-              </FormItem>
+              </FormItem >
             )}
           />
 
-          <FormField
+          < FormField
             control={form.control}
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="shad-form_label">Email</FormLabel>
+                <FormLabel className="shad-form_label">E-Posta</FormLabel>
                 <FormControl>
                   <Input type="text" className="shad-input" {...field} />
                 </FormControl>
                 <FormMessage />
-              </FormItem>
+              </FormItem >
             )}
           />
 
-          <FormField
+          < FormField
             control={form.control}
             name="password"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="shad-form_label">Password</FormLabel>
+                <FormLabel className="shad-form_label">Şifre</FormLabel>
                 <FormControl>
                   <Input type="password" className="shad-input" {...field} />
                 </FormControl>
                 <FormMessage />
-              </FormItem>
+              </FormItem >
             )}
           />
 
-          <Button type="submit" className="shad-button_primary">
+          < Button type="submit" className="shad-button_primary" >
             {isCreatingAccount || isSigningInUser || isUserLoading ? (
               <div className="flex-center gap-2">
-                <Loader /> Loading...
+                <Loader /> Yükleniyor...
               </div>
             ) : (
-              "Sign Up"
+              "Kayıt Ol"
             )}
-          </Button>
+          </Button >
 
           <p className="text-small-regular text-light-2 text-center mt-2">
-            Already have an account?
+            Zaten bir hesabınız var mı?
             <Link
               to="/sign-in"
               className="text-primary-500 text-small-semibold ml-1">
-              Log in
+              Giriş Yap
             </Link>
           </p>
-        </form>
-      </div>
-    </Form>
+        </form >
+      </div >
+    </Form >
   );
 };
 

@@ -61,9 +61,9 @@ const Profile = () => {
             </div>
 
             <div className="flex gap-8 mt-10 items-center justify-center xl:justify-start flex-wrap z-20">
-              <StatBlock value={currentUser.posts.length} label="Posts" />
-              <StatBlock value={20} label="Followers" />
-              <StatBlock value={20} label="Following" />
+              <StatBlock value={currentUser.posts.length} label="Gönderiler" />
+              <StatBlock value={20} label="Takipçiler" />
+              <StatBlock value={20} label="Takip Edilenler" />
             </div>
 
             <p className="small-medium md:base-medium text-center xl:text-left mt-7 max-w-screen-sm">
@@ -75,9 +75,8 @@ const Profile = () => {
             <div className={`${user.id !== currentUser.$id && "hidden"}`}>
               <Link
                 to={`/update-profile/${currentUser.$id}`}
-                className={`h-12 bg-dark-4 px-5 text-light-1 flex-center gap-2 rounded-lg ${
-                  user.id !== currentUser.$id && "hidden"
-                }`}>
+                className={`h-12 bg-dark-4 px-5 text-light-1 flex-center gap-2 rounded-lg ${user.id !== currentUser.$id && "hidden"
+                  }`}>
                 <img
                   src={"/assets/icons/edit.svg"}
                   alt="edit"
@@ -85,49 +84,48 @@ const Profile = () => {
                   height={20}
                 />
                 <p className="flex whitespace-nowrap small-medium">
-                  Edit Profile
-                </p>
-              </Link>
-            </div>
+                  Profili Düzenle
+                </p >
+              </Link >
+            </div >
             <div className={`${user.id === id && "hidden"}`}>
               <Button type="button" className="shad-button_primary px-8">
-                Follow
-              </Button>
-            </div>
-          </div>
-        </div>
-      </div>
+                Takip Et
+              </Button >
+            </div >
+          </div >
+        </div >
+      </div >
 
-      {currentUser.$id === user.id && (
-        <div className="flex max-w-5xl w-full">
-          <Link
-            to={`/profile/${id}`}
-            className={`profile-tab rounded-l-lg ${
-              pathname === `/profile/${id}` && "!bg-dark-3"
-            }`}>
-            <img
-              src={"/assets/icons/posts.svg"}
-              alt="posts"
-              width={20}
-              height={20}
-            />
-            Posts
-          </Link>
-          <Link
-            to={`/profile/${id}/liked-posts`}
-            className={`profile-tab rounded-r-lg ${
-              pathname === `/profile/${id}/liked-posts` && "!bg-dark-3"
-            }`}>
-            <img
-              src={"/assets/icons/like.svg"}
-              alt="like"
-              width={20}
-              height={20}
-            />
-            Liked Posts
-          </Link>
-        </div>
-      )}
+      {
+        currentUser.$id === user.id && (
+          <div className="flex max-w-5xl w-full">
+            <Link
+              to={`/profile/${id}`}
+              className={`profile-tab rounded-l-lg ${pathname === `/profile/${id}` && "!bg-dark-3"
+                }`}>
+              <img
+                src={"/assets/icons/posts.svg"}
+                alt="posts"
+                width={20}
+                height={20}
+              />
+              Gönderiler
+            </Link >
+            <Link
+              to={`/profile/${id}/liked-posts`}
+              className={`profile-tab rounded-r-lg ${pathname === `/profile/${id}/liked-posts` && "!bg-dark-3"
+                }`}>
+              <img
+                src={"/assets/icons/like.svg"}
+                alt="like"
+                width={20}
+                height={20}
+              />
+              Beğenilen Gönderiler
+            </Link >
+          </div >
+        )}
 
       <Routes>
         <Route
@@ -139,7 +137,7 @@ const Profile = () => {
         )}
       </Routes>
       <Outlet />
-    </div>
+    </div >
   );
 };
 
