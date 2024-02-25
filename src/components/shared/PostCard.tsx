@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { PostStats } from '@/components/shared';
 import { multiFormatDateString } from '@/lib/utils';
 import { useUserContext } from '@/context/AuthContext';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import CommentSection from './CommentSection';
 import {
   useGetCommentsByPostId,
@@ -21,10 +21,6 @@ const PostCard = ({ post }: PostCardProps) => {
   const [showComments, setShowComments] = useState(false);
 
   if (!post.creator) return;
-
-  useEffect(() => {
-    console.log('showComments', showComments);
-  }, [showComments]);
 
   const [comment, setComment] = useState('');
   const [comments, setComments] = useState<Models.Document[]>([]);

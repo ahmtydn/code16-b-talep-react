@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 import { PostStats } from "@/components/shared";
 import { useUserContext } from "@/context/AuthContext";
-import { SetStateAction } from "react";
 
 type GridPostListProps = {
   posts: Models.Document[];
@@ -44,7 +43,7 @@ const GridPostList = ({
                 <p className="line-clamp-1">{post.creator.name}</p>
               </div>
             )}
-            {showStats && <PostStats post={post} userId={user.id} setShowComments={function (value: SetStateAction<boolean>): void {
+            {showStats && <PostStats post={post} userId={user.id} setShowComments={function (): void {
               throw new Error("Function not implemented.");
             }} showComments={false} commentsLength={0} />}
           </div>

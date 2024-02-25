@@ -409,7 +409,6 @@ export async function getCommentsByPostId(postId: string) {
     );
     if (!comments) throw Error;
 
-    console.log('comments', comments);
     return comments;
   } catch (error) {
     console.log(error);
@@ -586,6 +585,21 @@ export async function updateUser(user: IUpdateUser) {
     }
 
     return updatedUser;
+  } catch (error) {
+    console.log(error);
+  }
+
+
+
+}
+
+
+export async function getImportantAnnouncements() {
+  const url = "https://www.bursa.bel.tr/mobil_yeni/json_yeni.php?islem=duyurular";
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
   } catch (error) {
     console.log(error);
   }

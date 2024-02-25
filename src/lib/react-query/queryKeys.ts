@@ -18,4 +18,7 @@ export enum QUERY_KEYS {
 
   //  SEARCH KEYS
   SEARCH_POSTS = "getSearchPosts",
+
+  //Announcements  KEYS
+  IMPORTANT_ANNOUNCEMENTS = "importantAnnouncements",
 }

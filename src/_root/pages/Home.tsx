@@ -1,8 +1,10 @@
 import { Models } from "appwrite";
 
 // import { useToast } from "@/components/ui/use-toast";
-import { Loader, PostCard, UserCard } from "@/components/shared";
-import { useGetRecentPosts, useGetUsers } from "@/lib/react-query/queries";
+import { Loader, PostCard } from "@/components/shared";
+import { useGetRecentPosts, useImportantAnnouncements } from "@/lib/react-query/queries";
+import { Key } from "react";
+import AnnouncementCard from "@/components/shared/AnnouncementCard";
 
 const Home = () => {
   // const { toast } = useToast();
@@ -13,12 +15,12 @@ const Home = () => {
     isError: isErrorPosts,
   } = useGetRecentPosts();
   const {
-    data: creators,
-    isLoading: isUserLoading,
-    isError: isErrorCreators,
-  } = useGetUsers(10);
+    data: announcements,
+    isLoading: isAnnouncementLoading,
+    isError: isErrorAnnouncements,
+  } = useImportantAnnouncements();
 
-  if (isErrorPosts || isErrorCreators) {
+  if (isErrorPosts || isErrorAnnouncements) {
     return (
       <div className="flex flex-1">
         <div className="home-container">
@@ -53,15 +55,15 @@ const Home = () => {
       </div >
 
       <div className="home-creators">
-        <h3 className="h3-bold text-light-1">Başlıca Önerenler</h3>
+        <h3 className="h3-bold text-light-1">Önemli Duyurular</h3>
         {
-          isUserLoading && !creators ? (
+          isAnnouncementLoading && !announcements ? (
             <Loader />
           ) : (
-            <ul className="grid 2xl:grid-cols-2 gap-6">
-              {creators?.documents.map((creator) => (
-                <li key={creator?.$id}>
-                  <UserCard user={creator} />
+            <ul className="">
+              {announcements?.map((announcement: any, index: Key | null | undefined) => (
+                <li key={index}>
+                  <AnnouncementCard announcement={announcement} />
                 </li>
               ))}
             </ul>
